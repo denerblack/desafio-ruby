@@ -58,14 +58,15 @@ task deploy: :environment do
     invoke :'deploy:link_shared_paths'
    invoke :'bundle:install'
  #   invoke :'rails:db_migrate'
-  #  invoke :'rails:assets_precompile'
-   # invoke :'deploy:cleanup'
+    invoke :'rails:assets_precompile'
+    invoke :'deploy:cleanup'
 
     on :launch do
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-      end
+      invoke :'puma:phased_restart'
+      #in_path(fetch(:current_path)) do
+      #  command %{mkdir -p tmp/}
+      #  command %{touch tmp/restart.txt}
+      #end
     end
   end
 
