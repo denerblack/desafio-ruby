@@ -1,0 +1,59 @@
+@import "bootstrap";
+
+.pagination {
+  //display: block;
+  text-align: center;
+  float: right;
+}
+.pagination li {
+  display: inline;
+}
+
+.pagination a {
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.5;
+  color: #0275d8;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.page-last-separator.disabled a,
+.page-first-separator.disabled a,
+span.page.current, span.page a, span.prev a, span.first a, span.next a, span.last a, .page-number a,
+.page-first a, .page-pre a, .page-next a, .page-last a,
+.page-number.active a, .page-number.active a:focus, .page-number.active a:hover {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.page-number.active a, span.page.current {
+  color: #818a91;
+  cursor: not-allowed;
+  background-color: #fff;
+}
+
+.btn-default {
+  color: #373a3c;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.limit-pagination {
+  display: inline-block;
+  padding-left: 1rem;
+}
+
+.page.gap {
+  display:none;
+}
+
+.products {
+  width: 14rem;
+  height: 20rem;
+  padding: 1rem;
+  border: 1rem;
+}
