@@ -14,7 +14,7 @@ set :application_name, 'marketplace'
 set :domain, 'denerdev.com'
 set :deploy_to, '/home/deploy/apps/marketplace'
 set :repository, 'https://github.com/denerblack/desafio-ruby.git'#'git://...'
-set :branch, 'master'
+set :branch, 'staging'
 set :user, 'deploy'          # Username in the server to SSH to.
 set :stage, 'production'
 
@@ -28,6 +28,8 @@ set :stage, 'production'
 # run `mina -d` to see all folders and files already included in `shared_dirs` and `shared_files`
 # set :shared_dirs, fetch(:shared_dirs, []).push('public/assets')
 # set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
+ set :shared_dirs, fetch(:shared_dirs, []).push('tmp/socket', 'tmp/pids', 'tmp/log')
+   set :shared_files, fetch(:shared_files, []).push('config/mongoid.yml', 'config/secrets.yml')#, 'tmp/sockets', 'tmp/sockets/puma.sock', 'tmp/pids')
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
@@ -49,7 +51,6 @@ end
 
 desc ""
 task :restart_puma do
-    command 'cd marketplace'
     invoce :'puma:phased_restart'
 end
 
@@ -61,7 +62,6 @@ task deploy: :environment do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     invoke :'git:clone'
-    command 'cd marketplace'
     invoke :'deploy:link_shared_paths'
    invoke :'bundle:install'
  #   invoke :'rails:db_migrate'
