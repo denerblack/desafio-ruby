@@ -22,13 +22,13 @@ namespace :marketplace do
             sellers = res["items"][0]["sellers"][0]
             commertial_offer = sellers["commertialOffer"]
             installments_res = commertial_offer["Installments"]
-            installments = installments_res.map do |installment|
-              Installment.new(value: installment["Value"], number_of_installments: installment["NumberOfInstallments"])
-            end
+#            installments = installments_res.map do |installment|
+#              Installment.new(value: installment["Value"], number_of_installments: installment["NumberOfInstallments"])
+#            end
             product = Product.new(name: res["productName"],
                                   price: commertial_offer["Price"],
                                   store_id: store.id,
-                                  installments: installments,
+                                  installments: 3,
                                   url: res["link"],
                                   image: res["items"][0]["images"][0]["imageUrl"])
             product.save

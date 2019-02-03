@@ -33,9 +33,14 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
-#cannot :manage, Product
+    #cannot :manage, Product
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+    config.authenticate_with do
+      warden.authenticate! scope: :admin
+    end
+    config.current_user_method(&:current_user)
   end
 end
+
