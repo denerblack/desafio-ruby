@@ -47,6 +47,12 @@ task :setup do
   # command %{rbenv install 2.3.0 --skip-existing}
 end
 
+desc ""
+task :restart_puma do
+    command 'cd marketplace'
+    invoce :'puma:phased_restart'
+end
+
 desc "Deploys the current version to the server."
 task deploy: :environment do
   # uncomment this line to make sure you pushed your local branch to the remote origin
@@ -63,6 +69,7 @@ task deploy: :environment do
     invoke :'deploy:cleanup'
 
     on :launch do
+      command 'cd marketplace'
       invoke :'puma:phased_restart'
       #in_path(fetch(:current_path)) do
       #  command %{mkdir -p tmp/}
