@@ -13,6 +13,7 @@ namespace :marketplace do
     stores = Store.create(data)
 
     stores.each do |store|
+      User.create(name: store.name, email: "admin@#{store.name.downcase}.com.br", password: '123456', profile: 'admin', store_id: store.id)
       3.times.each do |from|
         url = "#{store.website}/api/catalog_system/pub/products/search?_from=#{from}&_to=49"
         #url = "#{url}?_from=0&_to=#{args[:to]}" if args[:to].present?

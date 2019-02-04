@@ -12,6 +12,10 @@
       <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand">Marketplace</a>
 
+        <%= link_to new_user_session_path do%>
+          <i class="fa fa-user fa-2x"></i>
+        <% end %>
+
       </nav>
       <%= yield %>
     </main>

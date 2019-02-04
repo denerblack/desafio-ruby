@@ -4,4 +4,5 @@ class Store
   field :website, type: String
   field :logo, type: String
   field :email, type: String
+  has_many :users
 end

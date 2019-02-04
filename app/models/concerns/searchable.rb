@@ -18,11 +18,10 @@ module Searchable
       result = es_client.search(query)
       ids = result["hits"]["hits"].map { |hits| hits["_source"]["id"] }
       objects = Product.where(:id.in => ids)
-      OpenStruct.new(collection: objects, total: result["hits"]["total"])
+      OpenStruct.new(collection: objects.size == 0 ? [] : objects, total: result["hits"]["total"])
     end
 
     def self.es_client
-      #"MarketplaceIndex::#{self.parent.name}".constantize.client
       "MarketplaceIndex::#{self.name}".constantize.client
     end
   end

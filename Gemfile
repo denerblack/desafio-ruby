@@ -31,6 +31,8 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'kaminari-mongoid'
 gem 'rails_admin', '~> 1.3'
+gem 'cancancan', '~> 2.0'
+gem 'cancancan-mongoid'
 #gem 'kaminari-mongoid'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

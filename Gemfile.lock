@@ -56,6 +56,9 @@ GEM
     bson (4.4.2)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.3.0)
+    cancancan-mongoid (2.0.0.beta1)
+      cancancan (~> 2.0)
     chewy (5.0.0)
       activesupport (>= 4.0)
       elasticsearch (>= 2.0.0)
@@ -299,6 +302,8 @@ PLATFORMS
 DEPENDENCIES
   bootstrap (~> 4.2.1)
   byebug
+  cancancan (~> 2.0)
+  cancancan-mongoid
   chewy
   coffee-rails (~> 4.1.0)
   devise

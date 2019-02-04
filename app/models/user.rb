@@ -35,4 +35,7 @@ class User
   # field :locked_at,       type: Time
   field :name, type: String
   field :email, type: String
+  field :profile, type: String
+
+  belongs_to :store
 end

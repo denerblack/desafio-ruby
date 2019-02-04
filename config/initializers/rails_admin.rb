@@ -1,4 +1,9 @@
 RailsAdmin.config do |config|
+  config.parent_controller = 'ApplicationController'
+  config.model Product do
+    list do
+    end
+  end
 
   ### Popular gems integration
 
@@ -9,7 +14,7 @@ RailsAdmin.config do |config|
   # config.current_user_method(&:current_user)
 
   ## == Cancan ==
-  # config.authorize_with :cancan
+  config.authorize_with :cancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -37,10 +42,10 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
-    config.authenticate_with do
-      warden.authenticate! scope: :admin
-    end
-    config.current_user_method(&:current_user)
   end
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
 end
 

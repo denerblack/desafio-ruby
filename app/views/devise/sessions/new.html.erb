@@ -9,9 +9,9 @@
     <h2>Log in</h2>
 
   </div>
-  <div class="card-body">
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="card-body">
       <div class="form-group">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
@@ -29,12 +29,12 @@
         </div>
       <% end -%>
 
-  </div>
-  <div class="card-footer">
-    <div class="actions">
-      <%= f.submit "Log in" %>
     </div>
-  <% end %>
+    <div class="card-footer">
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+    <% end %>
 
-  </div>
+    </div>
 </div>
